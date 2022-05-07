@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqhg.ensure.mapper.MarryDataMapper">
+
+    <!--批量新增-->
+    <insert id="addDataList" parameterType="java.util.List" >
+        insert into PROVINCE_MARRY(ID, PEOPLE_ID, COMMISSION_ID, CREATE_TIME,
+        PERSON_NAME, INPUT_DEPT_NAME, DEGREE, INPUT_DEPT_CODE, MARRAY_DATE, SEX, FOLK, SPOUSE_DEGREE,
+        MARRIAGE_STATE, SPOUSE_MARRIAGE_STATE, SPOUSE_NAME, SPOUSE_DOCUMENT_NO, MARRIAGE_NO, NATIONALITY,
+        SPOUSE_NATIONALITY, CARD_NO, SPOUSE_FOLK, CARD_TYPE, SPOUSE_DOCUMENT_TYPE)
+        <foreach item="item" collection="list" separator="union all">
+            (
+            SELECT
+            sys_guid(),
+            #{peopleId,jdbcType=VARCHAR},
+            #{commissionId,jdbcType=VARCHAR},
+            SYSDATE,
+            #{item.PersonName,jdbcType=VARCHAR},
+            #{item.InputDeptName,jdbcType=VARCHAR},
+            #{item.Degree,jdbcType=VARCHAR},
+            #{item.InputDeptCode,jdbcType=VARCHAR},
+            #{item.MarriageRegistrationDate,jdbcType=VARCHAR},
+            #{item.Sex,jdbcType=VARCHAR},
+            #{item.Folk,jdbcType=VARCHAR},
+            #{item.SpouseDegree,jdbcType=VARCHAR},
+            #{item.MarriageState,jdbcType=VARCHAR},
+            #{item.SpouseMarriageState,jdbcType=VARCHAR},
+            #{item.SpouseName,jdbcType=VARCHAR},
+            #{item.SpouseDocumentNo,jdbcType=VARCHAR},
+            #{item.MarriageNO,jdbcType=VARCHAR},
+            #{item.Nationality,jdbcType=VARCHAR},
+            #{item.SpouseNationality,jdbcType=VARCHAR},
+            #{item.CardNo,jdbcType=VARCHAR},
+            #{item.SpouseFolk,jdbcType=VARCHAR},
+            #{item.CardType,jdbcType=VARCHAR},
+            #{item.SpouseDocumentType,jdbcType=VARCHAR}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqhg.ensure.mapper.TownWorkerMapper">
+
+    <!--批量新增-->
+    <insert id="addDataList" parameterType="java.util.List" >
+        insert into PROVINCE_TOWN_WORKER(ID, PEOPLE_ID, COMMISSION_ID, CREATE_TIME, AAC030, AAC031, AAC002, AAB004, AAB301, AAC003, AAE180)
+        <foreach item="item" collection="list" separator="union all">
+            (
+            SELECT
+            sys_guid(),
+            #{peopleId,jdbcType=VARCHAR},
+            #{commissionId,jdbcType=VARCHAR},
+            SYSDATE,
+            #{item.aac030,jdbcType=VARCHAR},
+            #{item.aac031,jdbcType=VARCHAR},
+            #{item.aac002,jdbcType=VARCHAR},
+            #{item.aab004,jdbcType=VARCHAR},
+            #{item.aab301,jdbcType=VARCHAR},
+            #{item.aac003,jdbcType=VARCHAR},
+            #{item.aae180,jdbcType=VARCHAR}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

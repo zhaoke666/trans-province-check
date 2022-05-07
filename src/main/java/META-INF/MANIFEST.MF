@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Main-Class: com.cqhg.ensure.TransProvinceCheckApplication
+Class-Path: swagger-annotations-1.5.20.jar spring-data-commons-2.4.6.jar
+  spring-jcl-5.3.5.jar slf4j-api-1.7.30.jar springfox-swagger-common-2.9
+ .2.jar spring-web-5.3.5.jar mybatis-spring-boot-autoconfigure-1.3.2.jar
+  spring-boot-2.4.4.jar jakarta.el-3.0.3.jar ojdbc6-12.1.0.1-atlassian-h
+ osted.jar lombok-1.18.18.jar springfox-swagger-ui-2.9.2.jar springfox-s
+ pi-2.9.2.jar fastjson-1.1.34.jar spring-expression-5.3.5.jar json-lib-2
+ .2.3-jdk15.jar snakeyaml-1.27.jar spring-boot-starter-2.4.4.jar jackson
+ -module-parameter-names-2.11.4.jar log4j-api-2.13.3.jar jackson-core-2.
+ 11.4.jar logback-core-1.2.3.jar mybatis-spring-boot-starter-1.3.2.jar c
+ ommons-net-3.1.jar spring-core-5.3.5.jar tomcat-embed-websocket-9.0.44.
+ jar spring-boot-starter-logging-2.4.4.jar spring-jdbc-5.3.5.jar springf
+ ox-swagger2-2.9.2.jar spring-context-5.3.5.jar byte-buddy-1.10.22.jar j
+ ackson-databind-2.11.4.jar spring-aop-5.3.5.jar spring-plugin-core-1.2.
+ 0.RELEASE.jar spring-beans-5.3.5.jar springfox-spring-web-2.9.2.jar com
+ mons-beanutils-1.9.3.jar spring-boot-autoconfigure-2.4.4.jar tomcat-emb
+ ed-core-9.0.44.jar mybatis-3.4.6.jar springfox-core-2.9.2.jar jakarta.a
+ nnotation-api-1.3.5.jar log4j-to-slf4j-2.13.3.jar swagger-models-1.5.20
+ .jar joda-time-2.10.jar commons-collections-3.2.1.jar spring-boot-start
+ er-data-jdbc-2.4.4.jar commons-logging-1.1.1.jar spring-plugin-metadata
+ -1.2.0.RELEASE.jar jackson-annotations-2.11.4.jar mapstruct-1.2.0.Final
+ .jar bcpkix-jdk15on-1.66.jar commons-lang-2.6.jar guava-20.0.jar jackso
+ n-datatype-jsr310-2.11.4.jar bcmail-jdk15on-1.66.jar classmate-1.5.1.ja
+ r logback-classic-1.2.3.jar spring-boot-starter-web-2.4.4.jar springfox
+ -schema-2.9.2.jar bcprov-jdk15on-1.66.jar jackson-datatype-jdk8-2.11.4.
+ jar ezmorph-1.0.6.jar spring-data-relational-2.1.6.jar jul-to-slf4j-1.7
+ .30.jar mybatis-spring-1.3.2.jar spring-tx-5.3.5.jar spring-boot-starte
+ r-json-2.4.4.jar spring-webmvc-5.3.5.jar spring-boot-starter-tomcat-2.4
+ .4.jar spring-boot-starter-jdbc-2.4.4.jar spring-data-jdbc-2.1.6.jar Hi
+ kariCP-3.4.5.jar
+

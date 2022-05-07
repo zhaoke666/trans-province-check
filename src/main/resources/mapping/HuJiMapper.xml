@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqhg.ensure.mapper.HuJiMapper">
+
+    <!--批量新增-->
+    <insert id="addDataList" parameterType="java.util.List" >
+        insert into province_huji(id, people_id, commission_id, create_time, matching_message, matching_result)
+        <foreach item="item" collection="list" separator="union all">
+            (
+            SELECT
+            sys_guid(),
+            #{peopleId,jdbcType=VARCHAR},
+            #{commissionId,jdbcType=VARCHAR},
+            SYSDATE,
+            #{item.matchingMessage,jdbcType=VARCHAR},
+            #{item.matchingResult,jdbcType=VARCHAR}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

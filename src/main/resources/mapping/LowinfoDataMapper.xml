@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqhg.ensure.mapper.LowinfoDataMapper">
+
+    <resultMap id="BaseResultMap" type="com.cqhg.ensure.entity.LowinfoData">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="income" jdbcType="VARCHAR" property="income" />
+        <result column="PersonName" jdbcType="VARCHAR" property="PersonName" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+    </resultMap>
+
+    <!--批量新增-->
+    <insert id="addLowinfoDataList" parameterType="java.util.List" >
+        insert into PROVINCE_LOWINFO(ID, PEOPLE_ID, COMMISSION_ID, CREATE_TIME,
+        INCOME, PERSON_NAME, ADDRESS, EXCEPTIONAL_POVERTY_TYPE, HOUSEHOLDER_NAME,
+        SEX_CODE, AREA_CODE, CARD_NO, CARD_TYPE, TELPHONE, HOUSEHOLDER_CARD_NO,
+        GUARANTEE_MODE, SALVAGE, PROJECT_NAME)
+        <foreach item="lowinfoData" collection="list" separator="union all">
+            (
+            SELECT
+            sys_guid(),
+            #{peopleId,jdbcType=VARCHAR},
+            #{commissionId,jdbcType=VARCHAR},
+            SYSDATE,
+            #{lowinfoData.income,jdbcType=VARCHAR},
+            #{lowinfoData.PersonName,jdbcType=VARCHAR},
+            #{lowinfoData.address,jdbcType=VARCHAR},
+            #{lowinfoData.ExceptionalPovertyType,jdbcType=VARCHAR},
+            #{lowinfoData.HouseholderName,jdbcType=VARCHAR},
+            #{lowinfoData.SexCode,jdbcType=VARCHAR},
+            #{lowinfoData.AREA_CODE,jdbcType=VARCHAR},
+            #{lowinfoData.CardNo,jdbcType=VARCHAR},
+            #{lowinfoData.CardType,jdbcType=VARCHAR},
+            #{lowinfoData.telphone,jdbcType=VARCHAR},
+            #{lowinfoData.HouseholderCardNo,jdbcType=VARCHAR},
+            #{lowinfoData.GuaranteeMode,jdbcType=VARCHAR},
+            #{lowinfoData.salvage,jdbcType=VARCHAR},
+            #{lowinfoData.projectName,jdbcType=VARCHAR}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+    <!--单个新增-->
+    <insert id="addLowinfoData">
+        insert into lowinfo_data(ID,INCOME,ADDRESS,PERSON_NAME) VALUES
+        (sys_guid(),#{lowinfoData.income},#{lowinfoData.address},#{lowinfoData.PersonName})
+    </insert>
+
+</mapper>

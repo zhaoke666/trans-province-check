@@ -1,0 +1,28 @@
+server:
+  port: 6000
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: frm_ws
+    password: frm_ws_dev
+    url: jdbc:oracle:thin:@192.168.21.110:1521/mzdev
+    #url: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS_LIST=(ADDRESS = (PROTOCOL = TCP)(HOST =23.29.2.2)(PORT = 1521)))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME =cams)))
+    #password: frm_ws_mzxm2018
+
+
+  servlet:
+    multipart:
+      max-request-size: 40MB
+      max-file-size: 4MB
+  http:
+    multipart:
+      max-file-size: 4MB
+      max-request-size: 40MB
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.cqhg.ensure.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

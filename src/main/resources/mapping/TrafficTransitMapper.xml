@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqhg.ensure.mapper.TrafficTransitMapper">
+
+    <!--批量新增-->
+    <insert id="addDataList" parameterType="java.util.List" >
+        insert into PROVINCE_TRAFFIC_TRANS(ID, PEOPLE_ID, COMMISSION_ID, CREATE_TIME, XM, CYZGZH, XB, SSDQ)
+        <foreach item="item" collection="list" separator="union all">
+            (
+            SELECT
+            sys_guid(),
+            #{peopleId,jdbcType=VARCHAR},
+            #{commissionId,jdbcType=VARCHAR},
+            SYSDATE,
+            #{item.XM,jdbcType=VARCHAR},
+            #{item.CYZGZH,jdbcType=VARCHAR},
+            #{item.XB,jdbcType=VARCHAR},
+            #{item.SSDQ,jdbcType=VARCHAR}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>
